@@ -1,0 +1,9 @@
+<!--pages/article/article.wxml-->
+<view class='container'>
+    <view class='header'>
+        <text>文章的标题</text>
+    </view>
+    <view class='desc_wrap'>
+        <text>文章的内容</text>
+    </view>
+</view>

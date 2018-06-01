@@ -1,0 +1,5 @@
+/**adv.wxss**/
+
+page{
+  min-height:100%;
+}

@@ -1,0 +1,154 @@
+<!--index.wxml-->
+<include src="../../overdue/overdue.wxml"/> 
+<!-- <block wx:else> -->
+<view class='scrolly'>
+    <view class="container" style='height:{{adv.length>0? "auto" : "100%"}}'  wx:if="{{!loadct}}">
+         <image src='{{thisImg ? thisImg : "/images/db/index/bg3.png"}}' class='container_bg' mode=''></image> 
+        <view class='top'>
+            <image src='/images/db/index/top.png' mode='widthFix'></image>
+            <text class='top_text2'>{{right}}</text> 
+            <text class='top_text'>当前共有<text class='text_red'>{{total}}</text>次参赛</text>
+        </view>
+        <!--轮播图  -->
+        <swiper indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+            class='swiper'
+            indicator-color='#fff'
+            indicator-active-color='red'
+            circular
+        >
+            <block wx:for='{{imgUrls}}'>
+                <swiper-item style='text-align:center'>
+                    <image src='{{item}}' class='slide-image'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <!-- 视频 -->
+        <view class='video_wrap'>
+            <block wx:for='{{videoSrcs}}'>
+                <view class='view_item'>
+                    <video src='{{item}}' class='video_item'></video> 
+                </view>
+            </block>
+           
+        </view>
+        <!--标题  -->
+        <view class='title_bg'>
+            <image src='../../images/db/index/title_bg.png' class='title'></image>
+            <view class='desc'>
+                <swiper vertical autoplay='true' circular interval="2500" style='height:58px;'>
+                    <block wx:for="{{slideText}}">
+                        <navigator url='/pages/article/article'>
+                            <swiper-item>
+                                <text class='desc_title'>{{item.title}}</text>
+                                <text class='desc_text'>{{item.text}}</text>
+                            </swiper-item>
+                        </navigator>
+                    </block>
+                </swiper>
+                                
+            </view>
+        </view>
+        <!--规则  -->
+        <view class='share_rule' >
+            <block  wx:if="{{news}}">
+                <view class='news_list-bg {{newchange ?"on" : ""}}'>
+                    <image src='{{news.head_img}}'></image>
+                    <text class='text'>恭喜{{news.nick_name}}获得{{news.prize_name}}</text>
+                </view>
+            </block>
+            <image class='img' mode='widthFix' src='{{share_bg}}'></image>
+            <view class='share_text'>{{share_text}}</view>
+            <view  class='share_box'>
+                <button class='btn_share' open-type="share"></button>
+            </view>
+            <view class='rule_btn' bindtap='toRule'>
+                规则
+            </view>
+        </view>
+        <!--开始  -->
+        <view class='start'>
+             <image mode='widthFix'  bindtap='toStart' src='/images/db/index/start.gif'></image> 
+        </view>
+        <view style='margin-top:140rpx; padding-bottom:130rpx;  background:#FFBC9D' wx:if="{{adv.length>0}}">
+            <block wx:for="{{adv}}">
+                <view class='adv' data-index='{{index}}' bindtap='toadv'>
+                    <image src='{{item.adv_url}}'></image>
+                    <text>广告</text>
+                </view>
+            </block>
+        </view>
+
+        <!-- 游戏规则 &times; -->
+        <view wx:if='{{rule}}' class='rule_box'>
+            <view class='ru_content'>
+                <image class='item_bg' src='/images/db/index/rule_bg.png' mode='widthFix'></image>
+                <view class='rule_text'>
+                    <block wx:for='{{ruleText}}'>
+                        <view class='ru_text'>
+                            <image class='rule_icon' src='/images/db/index/{{index+1}}.png' mode='widthFix'></image>
+                            <view class='ru_text_content'>{{item}}</view>
+                        </view>
+                    </block>
+                    <view class='rule_kf' bindtap='toStrategy'>
+                         <image src='/images/db/index/kf.png' mode='widthFix'></image> 
+                        <button class='btn-kf' open-type="contact"></button>
+                    </view> 
+                </view>
+                <view catchtap='closeRule' class='ru_false'></view>
+            </view>
+            <view class='ru_shadow' bindtap='closeRule'></view>
+        </view>
+    </view> 
+</view>
+<view class='footer'>
+    <navigator class='footer-nav' hover-class="scale" url='../prizeList/prizelist'>
+        <image src='/images/tar4_on.png'></image>
+        <view>娃娃奖品</view>
+    </navigator>
+    <navigator class='footer-nav' hover-class="scale" url='../ranking/ranking'>
+        <image src='/images/tar2_on.png'></image>
+        <view>排行榜</view>
+    </navigator>
+    <navigator class='footer-nav' hover-class="scale" url='../userCenter/userCenter'>
+        <image src='/images/tar3_on.png'></image>
+        <view>个人中心</view>
+    </navigator>
+</view>
+
+<!-- 没有挑战次数的弹框 -->
+ <!-- wx:if="{{show_share}}"   -->
+<view wx:if="{{show_share}}" class='dark_bg'>
+  <view class='lingth_bg'>
+     <image bindtap='colseShare' src='/images/db/index/close.png'></image> 
+     <button open-type="share"></button>
+     <view class='tit'>分享到不同微信群挑战机会+1</view>
+     <image class='share_btn' src='/images/db/index/share_btn.png'></image> 
+  </view>
+</view>
+<!-- </block> -->
+<!-- {{!show?"on":""}} -->
+ <view wx:if="{{loadct}}" class='loading {{!show?"on":""}}'>
+  <view class='getinfodark_bg' wx:if="{{showGetinfo}}" >
+    <view class='getinfolingth_bg'>
+      <view class='tit'>小程序申请获得一下权限</view>
+      <view class='content'>获得您的公开信息(头像，昵称等)</view>
+      <!-- <view class='ok_btn'>确定</view> -->
+      <button class='ok_btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 确定 </button>
+    </view>
+  </view> 
+  <image class='logo' mode='widthFix' src='/images/db/index/logo.png'></image>
+  <view class='progressBar'>
+    <view class='percent'>{{percent}}%</view>
+    <view class='tBar'><view style='width:{{percent}}%'></view></view>
+  </view>
+  <view class='load-bottom'>
+    <view class='zhy_logo'>
+       <image src="/images/db/index/zhy_logo.png"></image> 
+    </view>
+    <view class='load-txt'>专注知识教育，营造竞赛氛围。精选知识考题，提升个人智力。</view>
+    <view class='load-txt'>严格把控题目，杜绝不良信息。分享好友挑战，共同学习进步。</view>
+  </view>
+</view> 
+
+

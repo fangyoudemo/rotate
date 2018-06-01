@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/group/group",
+    "pages/report/report",
+    "overdue/overdue",
+    "pages/prizeList/prizelist",
+    "pages/complete/complete",
+    "pages/userCenter/userCenter",
+    "pages/ranking/ranking",
+    "pages/game/game",
+    "pages/certificate/certificate",
+    "pages/help/help",
+    "pages/advertise/advertise",
+    "pages/article/article"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#7fa0ff",
+    "navigationBarTitleText": "夺宝答题大师",
+    "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 5000
+  }
+}
