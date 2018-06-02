@@ -5,7 +5,7 @@ var loginInfo = {};
 
 App({
   setConfig: {
-    url: 'http://hh001.mryangping.com',
+      url: 'https://nbxs.mryangping.com',
     hb_appid: 'hb_wzwd123',
     hb_appsecret: 'MXWDh0mzTfreeoE6ffe123'
   },
@@ -42,7 +42,7 @@ App({
   //判断是否已经授权获取用户信息
   isAuthUserInfo: function (page){
     var that = this;
-    console.log(page);
+    // console.log(page);
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -74,7 +74,7 @@ App({
 //判断用户是否已经授权获取用户信息 end
     wx.getUserInfo({
       success: res => {
-          console.log(res);
+        //   console.log(res);
         // 可以将 res 发送给后台解码出 unionId
         var infoUser = '';
         that.globalData.userInfo = res;
@@ -89,14 +89,14 @@ App({
       console.log("登录..");
     var that = this;
     var infoUser = res.userInfo;
-    console.log(infoUser);
-    console.log(that.globalData.userInfo);
+    // console.log(infoUser);
+    // console.log(that.globalData.userInfo);
     //that.globalData.userInfo = res.userInfo;
     var url = that.setConfig.url + '/index.php?g=User&m=login&a=dologin';
     //获取登录code
     wx.login({
       success: function (res) {
-        console.log(res.code);
+        // console.log(res.code);
         if (res.code) {
           var data = {
             user_name: infoUser.nickName,
@@ -112,7 +112,7 @@ App({
           }
           if (callback) callback();         
           that.request(url, data,(res) => {   
-              console.log("成功")            
+            //   console.log("成功")            
             if (res.data.code != 20000) {
               wx.showToast({
                 title: res.data.msg,

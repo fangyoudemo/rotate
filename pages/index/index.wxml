@@ -17,15 +17,17 @@
             indicator-active-color='red'
             circular
         >
-            <block wx:for='{{imgUrls}}'>
-                <swiper-item style='text-align:center'>
-                    <image src='{{item}}' class='slide-image'></image>
-                </swiper-item>
+            <block wx:for='{{imgUrls}}' wx:key='{{index}}'>
+               
+                    <swiper-item style='text-align:center'>
+                        <image src='{{item.imgurl}}' class='slide-image'></image>
+                    </swiper-item>
+               
             </block>
         </swiper>
         <!-- 视频 -->
         <view class='video_wrap'>
-            <block wx:for='{{videoSrcs}}'>
+            <block wx:for='{{videoSrcs}}' wx:key='{{index}}'>
                 <view class='view_item'>
                     <video src='{{item}}' class='video_item'></video> 
                 </view>
@@ -37,8 +39,8 @@
             <image src='../../images/db/index/title_bg.png' class='title'></image>
             <view class='desc'>
                 <swiper vertical autoplay='true' circular interval="2500" style='height:58px;'>
-                    <block wx:for="{{slideText}}">
-                        <navigator url='/pages/article/article'>
+                    <block wx:for="{{slideText}}" wx:key='{{index}}'>
+                        <navigator url='/pages/article/article?id={{item.id}}'>
                             <swiper-item>
                                 <text class='desc_title'>{{item.title}}</text>
                                 <text class='desc_text'>{{item.text}}</text>
@@ -84,7 +86,7 @@
             <view class='ru_content'>
                 <image class='item_bg' src='/images/db/index/rule_bg.png' mode='widthFix'></image>
                 <view class='rule_text'>
-                    <block wx:for='{{ruleText}}'>
+                    <block wx:for='{{ruleText}}' wx:key='{{index}}'>
                         <view class='ru_text'>
                             <image class='rule_icon' src='/images/db/index/{{index+1}}.png' mode='widthFix'></image>
                             <view class='ru_text_content'>{{item}}</view>

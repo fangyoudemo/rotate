@@ -1,12 +1,6 @@
 /* pages/article/article.wxss */
-.header>text{
-   display:block;
-    text-align:center;
-    font-size:40rpx; 
-}
-.desc_wrap>text{
-    padding: 30rpx 35rpx 0 35rpx;
-    text-indent: 2rem;
-    font-size: 28rpx;
-    color: #ccc;
+@import"../../wxParse/wxParse.wxss";
+.container{
+    padding: 0 30rpx;
+    background-color: #fff;
 }

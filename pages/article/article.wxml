@@ -1,9 +1,7 @@
 <!--pages/article/article.wxml-->
-<view class='container'>
-    <view class='header'>
-        <text>文章的标题</text>
+<import src="../../wxParse/wxParse.wxml"/>
+<scroll-view scroll-y>
+    <view class='container'>
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     </view>
-    <view class='desc_wrap'>
-        <text>文章的内容</text>
-    </view>
-</view>
+</scroll-view>

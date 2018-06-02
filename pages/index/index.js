@@ -19,20 +19,9 @@ Page({
     userInfo: {},   // 用户信息
     hasUserInfo: false,  // 用户授权
     imgUrls:[],//轮播图的数组
-    videoSrcs:[
-        'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
-        'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
-        'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-    ],//视频播放
+    videoSrcs:[],//视频播放
     slideText:[
-        {
-            title:'喜洋洋',
-            text:'喜洋洋灰太狼'
-        },
-        {
-            title:'浩哥',
-            text:'无敌的浩哥，牛逼！hehehhehehehhehehehhehehehheheh'
-        }
+        
     ],
     autoplay:true,
     interval: 2500,
@@ -346,17 +335,39 @@ Page({
   onLoad: function () {
     app.isAuthUserInfo(this);
     wx.request({
-        url: 'http://hh001.mryangping.com/Api/Lunbo/list',
+        url: 'https://nbxs.mryangping.com/Api/Lunbo/list',
         method:'GET',
         success:res=>{
-            let ret = res.data.map(item=>{
-                return item.imgurl
-            })
+            let ret = res.data
             this.setData({
                 imgUrls:ret
             })
         }
+    });
+    wx.request({
+        url: 'https://nbxs.mryangping.com/Api/Video/list',
+        method: 'GET',
+        success: res => {
+            let ret = res.data.map(item => {
+                return item.url
+            })
+            this.setData({
+                videoSrcs: ret
+            })
+        }
     })
+    wx.request({
+        url: 'https://nbxs.mryangping.com/Api/AdminPage/list',
+        method: 'GET',
+        success: res => {
+            this.setData({
+                slideText: res.data
+            })
+            
+        }
+    })
+    
+    
     //app.userLogin(this);
   },
 

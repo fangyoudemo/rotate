@@ -1,32 +1,42 @@
 // pages/article/article.js
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+      article:'',
+      title:''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    //   console.log(options)
+      let id= options.id
+      wx.request({
+          url: `https://nbxs.mryangping.com/Api/AdminPage/getContent?id=${id}`,
+          method: 'GET',
+          success:res=>{
+            this.setData({
+                article:res.data.text,
+                title:res.data.title
+            })
+            var temp = WxParse.wxParse('article', 'html', this.data.article, this, 0);
+            this.setData({
+                article: temp
+            })  
+            wx.setNavigationBarTitle({
+                title: this.data.title
+            })
+          }
+      })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function () {    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function () {  
   },
 
   /**
