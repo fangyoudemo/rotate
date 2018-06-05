@@ -18,21 +18,24 @@
             circular
         >
             <block wx:for='{{imgUrls}}' wx:key='{{index}}'>
-               
-                    <swiper-item style='text-align:center'>
+                  <navigator url='{{item.url}}'>
+                     <swiper-item style='text-align:center'>
                         <image src='{{item.imgurl}}' class='slide-image'></image>
                     </swiper-item>
-               
+                  </navigator>
             </block>
         </swiper>
         <!-- 视频 -->
-        <view class='video_wrap'>
+        <view class='video_wrap' wx:if='{{isshow}}'>
             <block wx:for='{{videoSrcs}}' wx:key='{{index}}'>
                 <view class='view_item'>
-                    <video src='{{item}}' class='video_item'></video> 
+                     <video src='{{item}}' 
+                          class='video_item' objectFit='fill' id="video-{{index}}" bindplay='startPlay'
+                          data-id="{{index}}"
+                          >   
+                     </video>  
                 </view>
             </block>
-           
         </view>
         <!--标题  -->
         <view class='title_bg'>
@@ -47,8 +50,7 @@
                             </swiper-item>
                         </navigator>
                     </block>
-                </swiper>
-                                
+                </swiper>                   
             </view>
         </view>
         <!--规则  -->
@@ -145,9 +147,9 @@
     <view class='tBar'><view style='width:{{percent}}%'></view></view>
   </view>
   <view class='load-bottom'>
-    <view class='zhy_logo'>
-       <image src="/images/db/index/zhy_logo.png"></image> 
-    </view>
+    <!-- <view class='zhy_logo'> -->
+       <!-- <image src="/images/db/index/zhy_logo.png"></image>  -->
+    <!-- </view> -->
     <view class='load-txt'>专注知识教育，营造竞赛氛围。精选知识考题，提升个人智力。</view>
     <view class='load-txt'>严格把控题目，杜绝不良信息。分享好友挑战，共同学习进步。</view>
   </view>

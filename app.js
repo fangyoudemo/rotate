@@ -5,7 +5,7 @@ var loginInfo = {};
 
 App({
   setConfig: {
-      url: 'https://nbxs.mryangping.com',
+    url: 'https://nbxs.mryangping.com',
     hb_appid: 'hb_wzwd123',
     hb_appsecret: 'MXWDh0mzTfreeoE6ffe123'
   },

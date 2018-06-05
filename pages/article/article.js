@@ -2,7 +2,7 @@
 var WxParse = require('../../wxParse/wxParse.js');
 Page({
   data: {
-      article:'',
+      
       title:''
   },
   onLoad: function (options) {

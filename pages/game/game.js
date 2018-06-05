@@ -315,98 +315,100 @@ Page({
 
   },
   // 倒计时
-  loading: function () {
-    var qa = this.data.qa
-    if (qa.length > 0 && !this.data.rule){
-      innerAudioContext.stop();
-      innerAudioContext.src = '/music/timer.mp3'
-      innerAudioContext.play();
-      var loadNum = this.data.loadNum;
-      var that = this;
-      loading = setInterval(function () {
-        loadNum--;
-        if (loadNum == 0) {
-          innerAudioContext.stop();
-          innerAudioContext.src = '/music/ready_go.mp3'
-          innerAudioContext.play();
-          that.setData({
-            loadend: false
-          })
-          setTimeout(function () {
-            that.setData({
-              load: false
-            }, function () {
-              that.setTime();
-            })
-          }, 1200)
-          clearInterval(loading);
-          return false;
-        }
-        innerAudioContext.stop();
-        innerAudioContext.src = '/music/timer.mp3'
-        innerAudioContext.play();
-        that.setData({
-          loadNum
-        })
-      }, 1000)
-    }
-  },
-  // 定时器
-  setTime: function () {
-    if (timer) {
-      nopushagin = true
-      clearInterval(timer);
-      this.setData({
-        right: true
-      })
-    }
-    num = 10;
-    var that = this;
-    timer = setInterval(function () {
-      num--;
-      that.setData({
-        num
-      })
-      // 过了10秒 下一题
-      if (num <= 0) {
-        if (timer) {
-          clearInterval(timer)
-          that.setData({
-            right: false
-          })
-        };
-        wx.showLoading({
-          title: '默认选第一哦!!',
-          mask: true,
-          success: function () {
-            setTimeout(function () {
-              wx.hideLoading();
-              var obj = {
-                currentTarget: {
-                  dataset: {
-                    key: ''
-                  }
+    loading: function () {
+        var qa = this.data.qa
+        if (qa.length > 0 && !this.data.rule){
+            innerAudioContext.stop();
+            innerAudioContext.src = '/music/timer.mp3'
+            innerAudioContext.play();
+            var loadNum = this.data.loadNum;
+            var that = this;
+            loading = setInterval(function () {
+                loadNum--;
+                if (loadNum == 0) {
+                    innerAudioContext.stop();
+                    innerAudioContext.src = '/music/ready_go.mp3'
+                    innerAudioContext.play();
+                    that.setData({
+                        loadend: false
+                    })
+                    setTimeout(function () {
+                        that.setData({
+                                load: false
+                            }, 
+                            function () {
+                                
+                                that.setTime();
+                            })
+                    }, 1200)
+                    clearInterval(loading);
+                    return false;
                 }
-              };
-              that.selectstart(obj);
-            }, 1500)
-          }
-        })
-      }
-    }, 1000);
-
-  },
-  // 回答
-  selectstart: function (e) {
-    var that = this;
-    if (timer) {
-      clearInterval(timer)
-      that.setData({
-        right: false
-      })
-    };
-    var qaTarget = this.data.qaTarget,
-      qaSelect;
+                innerAudioContext.stop();
+                innerAudioContext.src = '/music/timer.mp3'
+                innerAudioContext.play();
+                that.setData({
+                    loadNum
+                })
+            }, 1000)
+        }
+    },
+  // 定时器
+    setTime: function () {
+        if (timer) {
+            console.log(1000000)
+            nopushagin = true
+            clearInterval(timer);
+            this.setData({
+                right: true
+            })
+        }
+        num = 10;
+        var that = this;
+        timer = setInterval(function () {
+            num--;
+            that.setData({
+                num
+            })
+            // 过了10秒 下一题
+            if (num <= 0) {
+                if (timer) {
+                    clearInterval(timer)
+                    that.setData({
+                        right: false
+                    })
+                };
+                wx.showLoading({
+                    title: '默认选第一哦!!',
+                    mask: true,
+                    success: function () {
+                        setTimeout(function () {
+                            wx.hideLoading();
+                            var obj = {
+                                currentTarget: {
+                                    dataset: {key: ''}
+                                }
+                            };
+                            that.selectstart(obj);
+                        }, 1500)
+                    }
+                })
+            }
+        }, 1000);
+    },
+    // 回答
+    selectstart: function (e) {
+    
+        var that = this;
+        if (timer) {
+            console.log(20000)
+            clearInterval(timer)
+            that.setData({
+                right: true
+            })
+        };
+        var qaTarget = this.data.qaTarget,
+        qaSelect;
 
     // 回答的序号
 

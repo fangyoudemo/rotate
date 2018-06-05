@@ -3,8 +3,8 @@
   <image class='container_bg' src='/images/db/game/bg.png'  ></image>
   <view class='top'>
     <view class='top_content'>
-      <image class='avatar center-block' src='{{userInfo.avatarUrl}}'></image>
-       <view class='top_text center-block'>{{userInfo.nickName}}</view> 
+      <image class='avatar center-block' src='{{userInfo.userInfo.avatarUrl}}'></image>
+       <view class='top_text center-block'>{{userInfo.userInfo.nickName}}</view> 
       <view class='awards center-block {{success ? "on": ""}}' >
           <image class='{{success ? "on": ""}}' src='{{success ? "/images/db/game/success.png" : "/images/db/game/fail.png"}}'></image>
       </view>

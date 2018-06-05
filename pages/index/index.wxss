@@ -21,17 +21,19 @@
  }
  
  .view_item{
-     width:200rpx;
-     height: 120rpx;
-    
-     overflow: hidden;
-     /* border:1px solid #000; */
-     
+    width:200rpx;
+    height: 225rpx;
+    border-radius: 10px;
  }
  .view_item .video_item{
-    width:200rpx;
-    height: 120rpx;
+    width:202rpx;
+    height: 225rpx;
     border-radius: 10px;
+ }
+ .controls{
+     width:200rpx;
+    height: 150rpx;
+     border-radius: 10px;
  }
  .title_bg{
      width: 90%;
@@ -285,7 +287,7 @@
   transform: translateX(-50%);
 }
 .rule_box {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0; 
   width: 750rpx;
@@ -304,9 +306,12 @@
   position: relative;
   width: 660rpx;
   height: 895rpx;
-  margin: 100rpx auto 0;
+  margin:auto;
   border-radius: 10rpx;
   z-index: 99;
+  top:42%;
+  transform: translateY(-50%)
+  
 }
 .ru_content .item_bg {
   width: 660rpx;

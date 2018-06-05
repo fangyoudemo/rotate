@@ -7,9 +7,9 @@
         <view class='userinfo-conten'>
           <view class='userinfo-head clearfix'>
             <view class='left fl'>
-              <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover" mode='widthFix'></image>
+              <image class="userinfo-avatar" src="{{userInfo.userInfo.avatarUrl}}" background-size="cover" mode='widthFix'></image>
               <view class='userinfo_text'>
-                <view class='userinfo_text2'>{{userInfo.nickName}}</view>
+                <view class='userinfo_text2'>{{userInfo.userInfo.nickName}}</view>
                 <view class='userinfo_text2'>共获得{{doll || 0}}个娃娃</view>
               </view>
             </view>
@@ -77,7 +77,7 @@
                   <view class='pa_text fl'>
                     <view class='pa_name'>{{item.app_name}}</view>
                     <view>{{item.app_desc}}</view>
-                    <view class='pa_num'><text>{{item.app_desc1}}</text></view>
+                    <!-- <view class='pa_num'><text>{{item.app_desc1}}</text></view> -->
                   </view>
                   <view class='fr' bindtap='toMore' data-id='{{item.app_id}}'>去挑战</view>
                 </view>
