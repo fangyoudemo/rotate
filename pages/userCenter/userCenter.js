@@ -188,7 +188,7 @@ Page({
     }
     if (!info) {
       return {
-        title: this.data.userInfo.nickName + '已获得了' + this.data.doll + '个娃娃!!, 你呢?',
+        title: this.data.userInfo.userInfo.nickName + '已获得了' + this.data.doll + '个娃娃!!, 你呢?',
         path: '/pages/index/index',
         imageUrl: '/images/share.png',
         success: function (res) {

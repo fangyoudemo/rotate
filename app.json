@@ -13,7 +13,8 @@
     "pages/certificate/certificate",
     "pages/help/help",
     "pages/advertise/advertise",
-    "pages/article/article"
+    "pages/article/article",
+    "pages/video/video"
   ],
   "window": {
     "backgroundTextStyle": "light",

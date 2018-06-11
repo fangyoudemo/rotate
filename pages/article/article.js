@@ -9,7 +9,7 @@ Page({
     //   console.log(options)
       let id= options.id
       wx.request({
-          url: `https://nbxs.mryangping.com/Api/AdminPage/getContent?id=${id}`,
+          url: `https://mp.mlbrgw.com/Api/AdminPage/getContent?id=${id}`,
           method: 'GET',
           success:res=>{
             this.setData({

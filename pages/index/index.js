@@ -1,4 +1,4 @@
-//index.js
+ //index.js
 // var overdue = require('../../overdue/overdue.js');
 //获取应用实例
 const app = getApp()
@@ -337,7 +337,7 @@ Page({
     onLoad: function () {
         app.isAuthUserInfo(this);
         wx.request({
-            url: 'https://nbxs.mryangping.com/Api/Lunbo/list',
+            url: app.setConfig.url +'/Api/Lunbo/list',
             method:'GET',
             success:res=>{
                 let ret = res.data
@@ -347,19 +347,17 @@ Page({
             }
         });
         wx.request({
-            url: 'https://nbxs.mryangping.com/Api/Video/list',
+            url: app.setConfig.url +'/Api/Video/list',
             method: 'GET',
             success: res => {
-                let ret = res.data.map(item => {
-                    return item.url
-                })
+                
                 this.setData({
-                    videoSrcs: ret
+                    videoSrcs: res.data
                 })
             }
         })
         wx.request({
-            url: 'https://nbxs.mryangping.com/Api/AdminPage/list',
+            url: app.setConfig.url +'/Api/AdminPage/list',
             method: 'GET',
             success: res => {
                 this.setData({
@@ -554,8 +552,9 @@ Page({
         var that = this;
         var sildeTxt = that.data.sildeTxt;
         var news = sildeTxt[num];
+            console.log(news)
         timer = setTimeout(function(){
-            // console.log(num)
+            console.log(num)
             that.setData({
                 news: news,
                 newchange:true,
@@ -603,11 +602,13 @@ Page({
     },
     getUserInfo:function(e){
         var that = this;
+        console.log(1)
         if (e.detail.userInfo){
+            that.init();
             app.login(e.detail,function(res){
                 that.init();
                 that.setData({
-                    showGetinfo:false
+                    showGetinfo: false,
                 })
             });
       

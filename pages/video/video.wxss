@@ -1,0 +1,11 @@
+/* pages/video/video.wxss */
+page{
+    background-color: #000;
+}
+.video{
+    top:50%;
+    transform: translateY(-50%);
+    width: 100%;
+    /* height: 100%;  */
+   
+}

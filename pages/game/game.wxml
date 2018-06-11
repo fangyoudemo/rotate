@@ -5,12 +5,12 @@
     <view class='load_box'>
       <image src="/images/db/game/load_bg.png" mode='widthFix'></image>
       <view class='user'>
-        <image src='{{userInfo.userInfo.avatarUrl}}' mode='widthFix'></image>
-        <view class='text-center'>{{userInfo.userInfo.nickName}}</view>
+        <image src='{{userInfo.avatarUrl}}' mode='widthFix'></image>
+        <view class='text-center'>{{userInfo.nickName}}</view>
       </view>
       <image wx:if='{{loadend}}' class='load_num' src="/images/db/game/{{loadNum}}.png" mode='widthFix'></image>
       <view  wx:if='{{!loadend}}' class='load_end text-center'>开始</view>
-      <view class='footer text-center'>本题库由{{foot}}提供</view>
+     
     </view>
   </block>
   <block wx:else>
@@ -54,7 +54,7 @@
     <view class='lose center-block' bindtap='tolose'>
       <image src='/images/db/game/lose.png' class='item_bg' mode='widthFix'></image>
     </view>
-    <view class='footer text-center'>本题库由{{foot}}提供</view>
+    
   </block>
   <!-- 游戏规则 &times; -->
   <view wx:if='{{rule}}' class='rule_box'>

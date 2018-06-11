@@ -30,8 +30,8 @@ Page({
     frequencyModel: false,
     // 
     prize: {
-      // src: '/images/db/index/prize1.png',
-      // text: '泰迪熊'
+    //   src: '/images/db/index/prize1.png',
+    //   text: '泰迪熊'
     },
     status: true,
     toprize:{},  //填写物流信息时的奖品信息

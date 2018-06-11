@@ -5,7 +5,7 @@ var loginInfo = {};
 
 App({
   setConfig: {
-    url: 'https://nbxs.mryangping.com',
+    url: 'https://mp.mlbrgw.com',
     hb_appid: 'hb_wzwd123',
     hb_appsecret: 'MXWDh0mzTfreeoE6ffe123'
   },
@@ -88,15 +88,16 @@ App({
   login:function(res,callback,page){
       console.log("登录..");
     var that = this;
+
     var infoUser = res.userInfo;
-    // console.log(infoUser);
-    // console.log(that.globalData.userInfo);
-    //that.globalData.userInfo = res.userInfo;
+    console.log(infoUser);
+    console.log(that.globalData.userInfo);
+    that.globalData.userInfo = res.userInfo;
     var url = that.setConfig.url + '/index.php?g=User&m=login&a=dologin';
     //获取登录code
     wx.login({
       success: function (res) {
-        // console.log(res.code);
+        console.log(res.code);
         if (res.code) {
           var data = {
             user_name: infoUser.nickName,

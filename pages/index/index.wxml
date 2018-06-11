@@ -18,22 +18,21 @@
             circular
         >
             <block wx:for='{{imgUrls}}' wx:key='{{index}}'>
-                  <navigator url='{{item.url}}'>
                      <swiper-item style='text-align:center'>
                         <image src='{{item.imgurl}}' class='slide-image'></image>
                     </swiper-item>
-                  </navigator>
             </block>
         </swiper>
         <!-- 视频 -->
         <view class='video_wrap' wx:if='{{isshow}}'>
-            <block wx:for='{{videoSrcs}}' wx:key='{{index}}'>
+            <block wx:for="{{videoSrcs}}" wx:key='{{index}}'>
                 <view class='view_item'>
-                     <video src='{{item}}' 
-                          class='video_item' objectFit='fill' id="video-{{index}}" bindplay='startPlay'
-                          data-id="{{index}}"
-                          >   
-                     </video>  
+                    <navigator url='/pages/video/video?id={{item.id}}'>
+                        <view class='video_item'>
+                            <image src='{{item.imgurl}}' class='z'></image>
+                            <image src='../../images/db/index/play.png' class='c'></image>
+                        </view>
+                    </navigator> 
                 </view>
             </block>
         </view>

@@ -21,11 +21,11 @@
               </view>
               <view class='ls-c'>
                 <view class='ls-c-img'>
-                  <image src="{{userInfo.userInfo.avatarUrl}}"></image>
+                  <image src="{{userInfo.avatarUrl}}"></image>
                 </view>
                 <view class='ls-c-txt'>
                   <view class='fl'>
-                    <view class='ls-c-t'>{{userInfo.userInfo.nickName}}</view>
+                    <view class='ls-c-t'>{{userInfo.nickName}}</view>
                     <!-- <view class='ls-c-b'>，成功{{mylist.passnum}}次</view> -->
                   </view>
                   <view class='ls-c-fr fr'>
@@ -76,11 +76,11 @@
               </view>
               <view class='ls-c'>
                 <view class='ls-c-img'>
-                  <image src="{{userInfo.userInfo.avatarUrl}}"></image>
+                  <image src="{{userInfo.avatarUrl}}"></image>
                 </view>
                 <view class='ls-c-txt'>
                   <view class='fl'>
-                    <view class='ls-c-t'>{{userInfo.userInfo.nickName}}</view>
+                    <view class='ls-c-t'>{{userInfo.nickName}}</view>
                     <!-- <view class='ls-c-b'>，成功{{mylist.passnum}}次</view> -->
                   </view>
                   <view class='ls-c-fr fr'>

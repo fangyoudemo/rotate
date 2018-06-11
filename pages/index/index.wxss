@@ -22,13 +22,31 @@
  
  .view_item{
     width:200rpx;
-    height: 225rpx;
+    height: 120rpx;
     border-radius: 10px;
  }
  .view_item .video_item{
-    width:202rpx;
-    height: 225rpx;
+    position: relative;
+    width:200rpx;
+    height: 120rpx;
     border-radius: 10px;
+    border: 1rpx solid #ccc;
+    overflow: hidden;
+   
+ }
+ .z{
+    width:200rpx;
+    height: 120rpx;
+ }
+ .c{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 64.5rpx;
+    height: 64.5rpx;
+    z-index: 99;
+
  }
  .controls{
      width:200rpx;

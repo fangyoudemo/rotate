@@ -1,0 +1,4 @@
+<!--pages/video/video.wxml-->
+<view class='container'>
+    <video src="{{videoSrc}}" objectFit='fill'  class='video'></video>
+</view>
